@@ -10,9 +10,15 @@ var bank = [
 ];
 var i;
 var output = "";
+var outputTemp = "";
+var arrayTemp = [];
+// String.prototype.insertAt=function(index, string) {
+//   return this.substr(0, index) + sting + this.substr(index);
+// }
 
 $(document).ready(function() {
   $("#romanForm").submit(function(event) {
+    output = "";
     num = parseInt($('#userNumber').val());
     if (num > 3999) {
       alert('Numbers over 3999 will not work.');
@@ -28,25 +34,33 @@ $(document).ready(function() {
         if (bank[i-1][1] === 0) {
           alert('400, 40, or 4 should work');
           bank[i][1] = 0;
-          bank[i-1][3] = true;
+          bank[i-1][3] = array[0];
           bank[i-1][1] += 1;
         } else if (bank[i-1][1] === 1) {
           alert('900, 90, or 9 should work');
           bank[i][1] = 0;
           bank[i-1][1] = 0;
-          bank[i-2][3] = true;
+          bank[i-2][3] = array[0];
           bank[i-2][1] += 1;
         }
       }
-      num = num % array [2];
+      num = num % array[2];
       i++;
     })
     bank.forEach(function(array) {
+      var j;
       for (j=0; j<array[1]; j++) {
-        output += array[0];
+        outputTemp += array[0];
       }
+      if ((typeof array[3] === 'string') && (!bank[j-1][3])) {
+        tempArray = outputTemp.split("");
+        tempArray.splice(tempArray.length-1, 0, array[3]);
+        outputTemp = tempArray.join("");
+      }
+      output += outputTemp;
+      outputTemp = "";
     });
     alert(output);
     event.preventDefault();
-  })
+  });
 });
