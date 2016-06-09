@@ -37,17 +37,19 @@ $(document).ready(function() {
           bank[i-1][1] = 0;
           bank[i-2][3] = array[0];
           bank[i-2][1] += 1;
+
         }
       }
       num = num % array[2];
       i++;
     })
     bank.forEach(function(array) {
-      var j;
+      var j = 0;
       for (j=0; j<array[1]; j++) {
         outputTemp += array[0];
       }
-      if ((typeof array[3] === 'string') && (!bank[j-1][3])) {
+      //&& (!bank[j-1][3])
+      if ((typeof array[3] === 'string')) {
         tempArray = outputTemp.split("");
         tempArray.splice(tempArray.length-1, 0, array[3]);
         outputTemp = tempArray.join("");
