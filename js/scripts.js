@@ -20,13 +20,24 @@ $(document).ready(function() {
       if (amt !== 4) {
         array[1] = amt;
       } else {
-
+        alert('the current value of '+array[0]+" is 4.");
+        if (bank[i-1][1] === 0) {
+          alert('400, 40, or 4 should work');
+          bank[i][1] = 0;
+          bank[i-1][3] = true;
+          bank[i-1][1] += 1;
+        } else if (bank[i-1][1] === 1) {
+          alert('900, 90, or 9 should work');
+          bank[i][1] = 0;
+          bank[i-1][1] = 0;
+          bank[i-2][3] = true;
+          bank[i-2][1] += 1;
+        }
       }
       num = num % array [2];
       console.log(amt+" "+num);
       i++;
     })
-
     event.preventDefault();
   })
 });
