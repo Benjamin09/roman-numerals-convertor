@@ -9,7 +9,7 @@ var bank = [
   ["I", 0, 1, false],
 ];
 var i;
-var output;
+var output = "";
 
 $(document).ready(function() {
   $("#romanForm").submit(function(event) {
@@ -39,9 +39,14 @@ $(document).ready(function() {
         }
       }
       num = num % array [2];
-
       i++;
     })
+    bank.forEach(function(array) {
+      for (j=0; j<array[1]; j++) {
+        output += array[0];
+      }
+    });
+    alert(output);
     event.preventDefault();
   })
 });
