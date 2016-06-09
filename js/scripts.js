@@ -14,6 +14,10 @@ var output;
 $(document).ready(function() {
   $("#romanForm").submit(function(event) {
     num = parseInt($('#userNumber').val());
+    if (num > 3999) {
+      alert('Numbers over 3999 will not work.');
+      num = 666;
+    }
     i = 0;
     bank.forEach(function(array) {
       var amt = Math.floor(num/array[2]);
@@ -35,7 +39,7 @@ $(document).ready(function() {
         }
       }
       num = num % array [2];
-      console.log(amt+" "+num);
+
       i++;
     })
     event.preventDefault();
