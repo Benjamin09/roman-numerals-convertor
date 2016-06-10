@@ -10,13 +10,13 @@ $(document).ready(function() {
 
   $("#romanForm").submit(function(event) {
     var bank = [
-      ["M", 0, 1000, false],
-      ["D", 0, 500, false],
-      ["C", 0, 100, false],
-      ["L", 0, 50, false],
-      ["X", 0, 10, false],
-      ["V", 0, 5, false],
-      ["I", 0, 1, false],
+      ["M", 0, 1000],
+      ["D", 0, 500],
+      ["C", 0, 100],
+      ["L", 0, 50],
+      ["X", 0, 10],
+      ["V", 0, 5],
+      ["I", 0, 1],
     ];
     $("#result").empty();
     output = "";
